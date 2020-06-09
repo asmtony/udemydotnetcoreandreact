@@ -1,0 +1,59 @@
+Ctr . for using/shortcut menu
+Ctr + Shift  + p for command window
+Ctor for constructor snippet
+
+#get a list of dot net commands
+dotnet -h
+#or to get a list of templates
+dotnet new -h
+#create a new sln file with name of current folder
+dotnet new sln
+#create project called Domain in a folder called Domain
+dotnet new classlib -n Domain
+#create project called Application in a folder called Application
+dotnet new classlib -n Application
+#create project called Persistance in a folder called Application
+dotnet new classlib -n Persistance
+#Create the Api Project called Api
+dotnet new webapi -n API
+#Show commands to use with the sln file
+dotnet sln -h
+#Add dotnet project to a sln file by just giving the folder name which is Domain in this case
+dotnet sln add Domain/
+#List projects that have been added to the sln file
+dotnet sln list
+# Add reference to project (cd into proj folder that you want to add others to) in this case from Application Add Domain
+dotnet add reference ../Domain
+#Same for Persistance project to Application
+dotnet add reference ../Persistance
+#Move into Api folder and add a reference from Api to Application
+dotnet add reference ../Application/
+#cd into Persistance and add a reference to Domain
+dotnet add reference ../Domain/
+#to exclude a file type in VS  file=>preference=>setting  then type exclude
+# run Api
+dotnet run -p Api/
+
+#search nuget package manager then search Microsoft.EntityFrameWorkCore add two packages exact same version
+# Microsoft.EntityFrameWorkCore & Microsoft.EntityFrameWorkCore.Sqlite
+
+#Add Microsoft.EntityFrameWorkCore.Design to API as it holds the connection string
+Microsoft.EntityFrameWorkCore.Design
+
+# had to install dot net tool for EF migrations
+dotnet tool install --global dotnet-ef
+
+# show ef commands
+dotnet ef
+
+# create an inital migrations at sln level -p shows project to use -s shows project with connection string
+dotnet ef migrations add InitialCreate -p Persistance/ -s API
+
+# this can only be run from within the Api folder (-p will not work) 
+# the watch command watches for file changes and rebuids the API
+dotnet watch run
+
+#Updated the seed values
+dotnet ef migrations add SeedValues01 -p Persistance/ -s API
+
+
