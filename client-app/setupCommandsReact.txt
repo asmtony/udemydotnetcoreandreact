@@ -1,0 +1,13 @@
+# Ctrl + j to toggle the terminal panel 
+# create the react Application with create react app
+npx create-react-app client-app --use-npm --typescript
+
+# start 
+npm start
+
+#Install axios 
+npm install axios
+
+# Install semantic-ui
+npm install semantic-ui-react
+# also add the cdn semantic to public=>index.html 

@@ -56,4 +56,3 @@ dotnet watch run
 #Updated the seed values
 dotnet ef migrations add SeedValues01 -p Persistance/ -s API
 
-
