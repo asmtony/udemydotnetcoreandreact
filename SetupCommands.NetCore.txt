@@ -55,4 +55,15 @@ dotnet watch run
 
 #Updated the seed values
 dotnet ef migrations add SeedValues01 -p Persistance/ -s API
+#Add activities to domain and dbcontxt then run migrations to add to dbcontxt
+# run from sln level (make sure app is not runnning)
+dotnet ef migrations add "EntityActivityAdded" -p Persistance/ -s API
+#Now start the app so it applies the migrations
+#cd Api
+# dotnet watch run
 
+Installing Mediatr
+#Ctrl + Shift + p
+#search for Mediatr and choose the one from microsoft
+#Mediatr.Extensions.Microsoft.DependencyInjection
+# pick the latest version and install into Application proj

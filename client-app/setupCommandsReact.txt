@@ -2,6 +2,8 @@
 # create the react Application with create react app
 npx create-react-app client-app --use-npm --typescript
 
+#remember that if you ever clone the project you will need to run npm install
+
 # start 
 npm start
 

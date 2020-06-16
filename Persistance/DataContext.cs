@@ -11,6 +11,7 @@ namespace Persistance
 
     }
     public DbSet<Value> Values { get; set; }
+    public DbSet<Activity> Activities { get; set; }
 
     /// Create seed data for database
     protected override void OnModelCreating(ModelBuilder builder)
