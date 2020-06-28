@@ -19,6 +19,8 @@ namespace API
 
     public IConfiguration Configuration { get; }
 
+    // cors https://docs.microsoft.com/en-us/aspnet/core/security/cors?view=aspnetcore-3.1
+    // readonly string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
     // This method gets called by the runtime. Use this method to add services to the container.
     public void ConfigureServices(IServiceCollection services)
     {
@@ -27,13 +29,28 @@ namespace API
         opt.UseSqlite(Configuration.GetConnectionString("DefaultConnection"));
       });
 
+      /*
+      services.AddCors(options =>
+              {
+                  options.AddPolicy(name: MyAllowSpecificOrigins,
+                                    builder =>
+                                    {
+                                        builder.WithOrigins("http://example.com",
+                                                            "http://www.contoso.com");
+                                    });
+              });
+              */
       services.AddCors(opt =>
       {
         opt.AddPolicy("CorsPolicy", policy =>
         {
-          policy.AllowAnyHeader().AllowAnyHeader().WithOrigins("http://localhost:3000");
+          policy.AllowAnyHeader()
+          .AllowAnyHeader()
+          .WithOrigins("http://localhost:3000", "https://stocktrack.co.uk/")
+          .WithMethods("PUT", "DELETE", "GET", "POST");
         });
       });
+
       services.AddMediatR(typeof(List.Handler).Assembly);
       services.AddControllers();
     }

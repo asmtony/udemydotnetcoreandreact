@@ -35,7 +35,7 @@ namespace Application.Activities
 
         if (activity == null)
           throw new Exception("Could not find Activity");
-
+        //Console.WriteLine(activity.ToString());
         activity.Title = request.Title ?? activity.Title;
         activity.Description = request.Description ?? activity.Description;
         activity.Category = request.Category ?? activity.Category;
@@ -43,11 +43,15 @@ namespace Application.Activities
         activity.City = request.Title ?? activity.Title;
         activity.Venue = request.Title ?? activity.Title;
 
-        var success = await _context.SaveChangesAsync() > 0;
-
-        if (success) return Unit.Value;
-
-        throw new Exception("Problem saving changes");
+        try
+        {
+          var success = await _context.SaveChangesAsync() > 0;
+          return Unit.Value;
+        }
+        catch (Exception e)
+        {
+          throw new Exception("Problem saving changes: " + e.Message);
+        }
       }
     }
   }

@@ -3,6 +3,8 @@
 npx create-react-app client-app --use-npm --typescript
 
 #remember that if you ever clone the project you will need to run npm install
+# react template snippet
+rafce
 
 # start 
 npm start
@@ -13,3 +15,7 @@ npm install axios
 # Install semantic-ui
 npm install semantic-ui-react
 # also add the cdn semantic to public=>index.html 
+
+npm install uuid
+
+npm install @types/uuid
