@@ -46,7 +46,8 @@ dotnet tool install --global dotnet-ef
 # show ef commands
 dotnet ef
 
-# create an inital migrations at sln level -p shows project to use -s shows project with connection string
+# create an inital migrations at sln level -p shows project to use  
+# -s shows project with connection string
 dotnet ef migrations add InitialCreate -p Persistance/ -s API
 
 # this can only be run from within the Api folder (-p will not work) 
@@ -71,5 +72,6 @@ Installing Mediatr
 # Drop the database in migrations from root showing Persistance project
 # and the startup project (stop dotnet Ctrl + c)
 dotnet ef database drop -p Persistance/ -s API
-# then to re build and see just run the API proj cd into API folder the dotnet watch run
+# then to re build and see just run the API proj cd into 
+# API folder the dotnet watch run
 dotnet watch run
