@@ -22,3 +22,8 @@ npm install @types/uuid
 
 # Install mobx lite
 npm install mobx mobx-react-lite
+
+#Install react router
+npm install react-router-dom
+#Install the types
+npm install @types/react-router-dom
