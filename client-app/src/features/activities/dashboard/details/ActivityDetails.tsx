@@ -25,7 +25,9 @@ const ActivityDetails: React.FC<RouteComponentProps<DetailParams>> = ({
   } = activityStore;
 
   useEffect(() => {
-    loadActivity(match.params.id);
+    loadActivity(match.params.id).catch(() => {
+      history.push('/notfound')
+    })
   }, [loadActivity, match.params.id])
 
   if (loadingInitial || !activity) return <LoadingComponent1 content='Loading activity...' />

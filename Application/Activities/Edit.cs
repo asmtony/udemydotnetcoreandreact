@@ -1,6 +1,8 @@
 using System;
+using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
+using Application.Errors;
 using MediatR;
 using Persistance;
 
@@ -34,7 +36,7 @@ namespace Application.Activities
         var activity = await _context.Activities.FindAsync(request.Id);
 
         if (activity == null)
-          throw new Exception("Could not find Activity");
+          throw new RestException(HttpStatusCode.NotFound, new { activity = "Activity not for Edit" });
         //Console.WriteLine(activity.ToString());
         activity.Title = request.Title ?? activity.Title;
         activity.Description = request.Description ?? activity.Description;

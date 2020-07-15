@@ -27,3 +27,6 @@ npm install mobx mobx-react-lite
 npm install react-router-dom
 #Install the types
 npm install @types/react-router-dom
+
+# Install toast
+npm install react-toastify
