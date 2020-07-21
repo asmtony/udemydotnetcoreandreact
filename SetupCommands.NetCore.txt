@@ -70,7 +70,7 @@ Installing Mediatr
 # pick the latest version and install into Application proj
 
 # Drop the database in migrations from root showing Persistance project
-# and the startup project (stop dotnet Ctrl + c)
+# (stop dotnet Ctrl + c)
 dotnet ef database drop -p Persistance/ -s API
 # then to re build and see just run the API proj cd into 
 # API folder the dotnet watch run

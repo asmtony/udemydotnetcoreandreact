@@ -32,6 +32,7 @@ namespace API.Controllers
     [HttpPost]
     public async Task<ActionResult<Unit>> Create(Create.Command command)
     {
+      //throw new Exception(command.ToString());
       return await _mediator.Send(command);
     }
 

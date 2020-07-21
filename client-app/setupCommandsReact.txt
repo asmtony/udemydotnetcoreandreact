@@ -30,3 +30,17 @@ npm install @types/react-router-dom
 
 # Install toast
 npm install react-toastify
+
+# Install react final form
+npm install react-final-form final-form (also installs revalidate package)
+
+#Section 11 (may need to watch again due to typings file)
+# Install react-widgets to get the date picker (then follow the warning as per below)
+npm install react-widgets react-widgets-date-fns
+# npm WARN react-widgets-date-fns@4.1.0 requires a peer of date-fns@^2.0.0 but none is installed. You must install peer dependencies yourself.
+npm install date-fns@^2.0.0
+
+# Install revalidate for validating forms
+npm install revalidate
+# Also types file for revalidate
+npm install @types/revalidate 
