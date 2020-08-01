@@ -1,3 +1,9 @@
+API - Controllers
+Application - Biz Log
+Persistance - Database stuff
+Domain - Domain obj
+Infrastructure - JWT
+
 Ctr . for using/shortcut menu
 Ctr + Shift  + p for command window
 Ctor for constructor snippet
@@ -75,3 +81,46 @@ dotnet ef database drop -p Persistance/ -s API
 # then to re build and see just run the API proj cd into 
 # API folder the dotnet watch run
 dotnet watch run
+
+# add the identity tables after adding the identity to the domain
+dotnet ef migrations add "AddedIdentity" -p Persistance/ -s API/
+
+#Add to Domain proj
+Microsoft.AspNetCore.Identity.EntityFrameworkCore
+
+#To Api proj
+#Need to add Microsoft.AspNetCore.Identity.UIy as of .netCore 3.0
+Microsoft.AspNetCore.Identity.UI 
+
+# Add the Infrastructure proj (from the root folder run command below)
+dotnet new ClassLib -n Infrastructure
+
+#Now add the Infrastructure project to the solution
+dotnet sln add Infrastructure/
+
+# Now add the application project to the Infrastructure project (cd into Infrastructure )
+cd Infrastructure
+dotnet add reference ../Application/
+
+# now add Infrastructure to the api proj (cd into api) for JWT
+cd ../
+cd api
+dotnet add reference ../Infrastructure/
+
+# to use Jwt add package System.IdentityModel.Tokens.Jwt 
+
+# To add the bearer services.AddAuthentication(JwtBearerDefaults);
+# Microsoft.AspNetCore.Authentication.JwtBearer
+
+#Add a user secret from root (secret only available in dev mode, 
+#for live need to use Envi var)
+# Add a secret to the API proj file 
+dotnet user-secrets init -p API/
+
+# Set the user secret (if source code put on a new machine, re run this)
+dotnet user-secrets set "TokenKey" "My9Very8Secret7Key" -p API/
+
+# List all keys on machine
+dotnet user-secrets list -p API/
+
+
